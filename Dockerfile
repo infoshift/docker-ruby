@@ -1,9 +1,15 @@
 FROM infoshift/rbenv
 MAINTAINER Jesse Panganiban <jesse.panganiban@infoshiftinc.com>
 
-RUN apt-get install -y libssl-dev
-RUN rbenv install 2.1.0
-RUN rbenv global 2.1.0
+ENV RUBY_VERSION 2.1.0
 
-RUN gem install bundler --no-ri --no-rdoc
-RUN rbenv rehash
+# Install dependencies
+RUN apt-get install -y libssl-dev
+
+# Install ruby
+RUN rbenv install ${RUBY_VERSION} && \
+  rbenv global ${RUBY_VERSION}
+
+# Install bundler
+RUN gem install bundler --no-ri --no-rdoc && \
+  rbenv rehash
