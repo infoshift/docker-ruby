@@ -1,7 +1,7 @@
 FROM infoshift/rbenv
 MAINTAINER Jesse Panganiban <jesse.panganiban@infoshiftinc.com>
 
-ENV RUBY_VERSION 2.1.2
+ENV RUBY_VERSION 2.1.0
 
 # Install dependencies
 RUN apt-get install -y libssl-dev libreadline-dev
